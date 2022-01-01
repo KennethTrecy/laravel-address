@@ -57,15 +57,14 @@ class BarangaysRepositoryEloquent extends EloquentBaseRepository implements Bara
     }
 
     protected function flattenBarangays($model) {
-        $barangays = $model->barangays
+        $barangays = collect((array) json_decode($model->barangays))
             ->map(function($info) use ($model) {
-                return collect(array_merge($info, [
+                return array_merge((array) $info, [
                     "region_id" => $model->region_id,
                     "province_id" => $model->province_id,
                     "city_id" => $model->city_id
-                ]));
-            })
-            ->orderBy('name', 'asc');
+                ]);
+            })->sortBy('name');
 
             return $barangays;
     }
