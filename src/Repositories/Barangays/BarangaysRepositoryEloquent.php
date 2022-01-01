@@ -19,7 +19,7 @@ class BarangaysRepositoryEloquent extends EloquentBaseRepository implements Bara
             $this->getModel()
                 ->newQuery()
                 ->where('city_id', $cityId)
-                ->get()
+                ->first()
         );
 
     }
@@ -52,7 +52,7 @@ class BarangaysRepositoryEloquent extends EloquentBaseRepository implements Bara
                 ->where('region_id', $regionId)
                 ->where('province_id', $provinceId)
                 ->where('city_id', $cityId)
-                ->get()
+                ->first()
         );
     }
 
