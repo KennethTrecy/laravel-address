@@ -1,12 +1,12 @@
 {
     "name": "kennethtrecy/laravel-address",
-    "description": "Philippines Address Lookup API for Laravel.",
+    "description": "A minor fork of yajra/laravel-address to store barangays in JSON format.",
     "keywords": [
         "yajra",
         "laravel",
         "address"
     ],
-    "homepage": "https://github.com/yajra/laravel-address",
+    "homepage": "https://github.com/kennethtrecy/laravel-address",
     "license": "MIT",
     "authors": [
         {
