@@ -12,9 +12,23 @@ A package for providing Philippines Address lookup API with Laravel.
 ## Install
 
 - Via Composer
-``` bash
-$ composer require yajra/laravel-address
-```
+  1. Merge the following in your composer.json:
+     ```
+     "require": {
+		"kennethtrecy/laravel-address": "^0.7.0"
+     },
+
+     "repositories": [
+         {
+             "type": "vcs",
+             "url": "git@github.com:KennethTrecy/laravel-address.git"
+         }
+     ],
+     ```
+  2. Run the following in your command line:
+     ``` bash
+     $ composer update
+     ```
 
 ## Providers and Config
 > If you are using Laravel 5.5+ then the steps below are optional.
