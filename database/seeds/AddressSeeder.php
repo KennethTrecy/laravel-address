@@ -83,8 +83,14 @@ class AddressSeeder extends Seeder
 
         $this->command->info(sprintf('Seeding %s barangays.', count($barangays)));
         $barangay = config('address.models.barangay', Barangay::class);
-        collect($barangays)->chunk(100)->each(function ($chunk) use ($barangay) {
-            $barangay::query()->insert($chunk->toArray());
+        collect($barangays)->groupBy("city_id")->each(function ($chunk) use ($barangay) {
+            $province_id = $chunk[0]["province_id"];
+            $region_id = $chunk[0]["region_id"];
+            $city_id = $chunk[0]["city_id"];
+            $barangays = json_encode($chunk->each(function($data) {
+                return collect($data)->only("code", "name");
+            }));
+            $barangay::query()->create(compact("province_id", "region_id", "city_id", "barangays"));
         });
     }
 }
