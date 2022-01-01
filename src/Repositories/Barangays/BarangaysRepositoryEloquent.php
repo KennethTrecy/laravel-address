@@ -15,11 +15,14 @@ class BarangaysRepositoryEloquent extends EloquentBaseRepository implements Bara
      */
     public function getByCity($cityId)
     {
-        return $this->getModel()
-                    ->newQuery()
-                    ->where('city_id', $cityId)
-                    ->orderBy('name', 'asc')
-                    ->get();
+        return $this->flattenBarangays(
+            $this->getModel()
+                ->newQuery()
+                ->where('city_id', $cityId)
+                ->orderBy('name', 'asc')
+                ->get()
+        );
+
     }
 
     /**
@@ -44,12 +47,26 @@ class BarangaysRepositoryEloquent extends EloquentBaseRepository implements Bara
      */
     public function getByProvinceRegionAndCityId($regionId, $provinceId, $cityId)
     {
-        return $this->getModel()
-                    ->newQuery()
-                    ->where('region_id', $regionId)
-                    ->where('province_id', $provinceId)
-                    ->where('city_id', $cityId)
-                    ->orderBy('name', 'asc')
-                    ->get();
+        return $this->flattenBarangays(
+            $this->getModel()
+                ->newQuery()
+                ->where('region_id', $regionId)
+                ->where('province_id', $provinceId)
+                ->where('city_id', $cityId)
+                ->orderBy('name', 'asc')
+                ->get()
+        );
+    }
+
+    protected function flattenBarangays($model) {
+        $barangays = $model->barangays->map(function($info) use ($model) {
+            return collect(array_merge($info, [
+                "region_id" => $model->region_id,
+                "province_id" => $model->province_id,
+                "city_id" => $model->city_id
+            ]));
+        });
+
+        return $barangays;
     }
 }
