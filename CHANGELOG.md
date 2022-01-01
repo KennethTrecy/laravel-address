@@ -2,6 +2,10 @@
 
 All Notable changes to `laravel-address` will be documented in this file
 
+## v0.7.0 - 2022-01-01
+
+- Store barangays as JSON
+
 ## v0.6.1 - 2021-05-02
 
 - Allow fast-excel 3.0.
