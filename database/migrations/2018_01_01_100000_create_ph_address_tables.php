@@ -41,8 +41,7 @@ class CreatePhAddressTables extends Migration
 
         Schema::create('barangays', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('code', 9)->unique();
-            $table->string('name');
+            $table->json('barangays');
             $table->string('region_id', 2)->index();
             $table->string('province_id', 4)->index();
             $table->string('city_id', 6)->index();
