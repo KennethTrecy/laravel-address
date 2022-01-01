@@ -83,7 +83,7 @@ class AddressSeeder extends Seeder
 
         $this->command->info(sprintf('Seeding %s barangays.', count($barangays)));
         $barangay = config('address.models.barangay', Barangay::class);
-        collect($barangays)->groupBy("city_id")->each(function ($group) {
+        collect($barangays)->groupBy("city_id")->map(function ($group) {
             $province_id = $group[0]["province_id"];
             $region_id = $group[0]["region_id"];
             $city_id = $group[0]["city_id"];
