@@ -15,7 +15,7 @@ A package for providing Philippines Address lookup API with Laravel.
   1. Merge the following in your composer.json:
      ```
      "require": {
-		"kennethtrecy/laravel-address": "^0.7.0"
+        "kennethtrecy/laravel-address": "^0.7.0"
      },
 
      "repositories": [
@@ -25,6 +25,20 @@ A package for providing Philippines Address lookup API with Laravel.
          }
      ],
      ```
+
+	  or specify the package repository instead:
+	  ```
+     "require": {
+        "kennethtrecy/laravel-address": "^0.7.0"
+     },
+
+     "repositories": [
+        {
+           "type": "composer",
+           "url": "https://raw.githubusercontent.com/KennethTrecy/PHP_packages/master"
+        }
+     ]
+	  ```
   2. Run the following in your command line:
      ``` bash
      $ composer update
