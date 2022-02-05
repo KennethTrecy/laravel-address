@@ -9,6 +9,9 @@
 
 A package for providing Philippines Address lookup API with Laravel.
 
+**Note**: A minor fork of [`yajra/laravel-address`] to store barangays in JSON format. For this
+reason, the number of records in a database is lower than the original package.
+
 ## Install
 
 - Via Composer
@@ -158,3 +161,4 @@ The MIT License (MIT). Please see [License File](LICENSE.md) for more informatio
 [link-downloads]: https://packagist.org/packages/yajra/laravel-address
 [link-author]: https://github.com/yajra
 [link-contributors]: ../../contributors
+[`yajra/laravel-address`]: https://github.com/yajra/laravel-address
